@@ -29,7 +29,7 @@ Feature: Consignment NUmber Generator Test
       }
     """
     When method POST
-    Then status 500
+    Then status 400
 
 
 
