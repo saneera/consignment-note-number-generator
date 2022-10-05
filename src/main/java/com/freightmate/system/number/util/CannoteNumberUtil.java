@@ -59,12 +59,9 @@ public class CannoteNumberUtil {
 
     public static String buildCannoteNumberNumber(CannoteNumberDto cannoteNumber) {
         Integer nextIndexToUse = getNextIndexedToUse(cannoteNumber.getLastUsedIndex());
-        System.out.println(nextIndexToUse);
         String paddedString =  paddingWithZero(String.valueOf(nextIndexToUse), cannoteNumber.getDigits());
-        System.out.println(paddedString);
         Integer checkSumValue = calculateCheckSum(paddedString);
-        System.out.println(checkSumValue);
-        return DEFAULT_PREFIX+ cannoteNumber.getAccountNumber()+""+paddedString+checkSumValue;
+        return DEFAULT_PREFIX+ cannoteNumber.getAccountNumber()+paddedString+checkSumValue;
 
     }
 }
