@@ -13,8 +13,12 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 @EnableWebSecurity
 public class WebConfig extends WebSecurityConfigurerAdapter {
 
-    public static String[] SWAGGER_URL_PATHS = new String[]{"/swagger-ui.html**", "/swagger-resources/**",
-            "/v2/api-docs**", "/webjars/**"};
+    public static String[] SWAGGER_URL_PATHS = new String[]{
+            "/swagger-ui.html**",
+            "/swagger-resources/**",
+            "/v2/api-docs**",
+            "/webjars/**"
+    };
 
     @Bean
     public ModelMapper modelMapper() {
@@ -37,6 +41,4 @@ public class WebConfig extends WebSecurityConfigurerAdapter {
     public void configure(WebSecurity web) {
         web.ignoring().antMatchers(SWAGGER_URL_PATHS);
     }
-
-
 }
