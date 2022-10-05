@@ -66,8 +66,17 @@ git clone https://github.com/saneera/consignment-note-number-generator.git
 The app will start running at <http://localhost:8080>
 
 
+#### Swagger URL : http://localhost:8080/swagger-ui/index.html
 
-### Test the application
+### Running tests
+```bash
+Gradle: ./gradlew clean test
+```
+
+### Integration Test
+Integration Test located on src/test/java/karate
+
+### Curl Command
 
 ```
 curl -X 'POST' \
