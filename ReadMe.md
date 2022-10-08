@@ -61,6 +61,10 @@ git clone https://github.com/saneera/consignment-note-number-generator.git
 **3. Run the app using gradle**
 
 ```bash
+chmod +x gradlew
+```
+
+```bash
 ./gradlew bootRun
 ```
 The app will start running at <http://localhost:8080>
@@ -70,7 +74,7 @@ The app will start running at <http://localhost:8080>
 
 ### Running tests
 ```bash
-Gradle: ./gradlew clean test
+./gradlew clean test
 ```
 
 ### Integration Test
