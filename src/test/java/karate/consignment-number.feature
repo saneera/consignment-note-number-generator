@@ -30,6 +30,35 @@ Feature: Consignment NUmber Generator Test
     """
     When method POST
     Then status 400
+    And match response contains
+    """
+    [
+       {
+          "fieldName":"rangeStart",
+          "errorMessage":"must not be null"
+       },
+       {
+          "fieldName":"lastUsedIndex",
+          "errorMessage":"must not be null"
+       },
+       {
+          "fieldName":"accountNumber",
+          "errorMessage":"must not be null"
+       },
+       {
+          "fieldName":"digits",
+          "errorMessage":"must not be null"
+       },
+       {
+          "fieldName":"rangeEnd",
+          "errorMessage":"must not be null"
+       },
+       {
+          "fieldName":"carrierName",
+          "errorMessage":"must not be null"
+       }
+    ]
+    """
 
 
 

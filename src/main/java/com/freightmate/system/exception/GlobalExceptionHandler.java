@@ -18,11 +18,16 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class GlobalExceptionHandler {
 
+
     @ExceptionHandler(MethodArgumentNotValidException.class)
-    public ResponseEntity<Map<String, List<String>>> handleValidationErrors(MethodArgumentNotValidException ex) {
-        List<String> errors = ex.getBindingResult().getFieldErrors()
-                .stream().map(FieldError::getDefaultMessage).collect(Collectors.toList());
-        return new ResponseEntity<>(getErrorsMap(errors), new HttpHeaders(), HttpStatus.BAD_REQUEST);
+    public ResponseEntity<List<FieldErrorMessage>> handleValidationErrors(MethodArgumentNotValidException ex) {
+        List<FieldErrorMessage> errors = ex.getBindingResult().getFieldErrors()
+                .stream().map( row ->
+                        new FieldErrorMessage(
+                                row.getField(),
+                                row.getDefaultMessage()
+                )).collect(Collectors.toList());
+        return new ResponseEntity<>(errors, new HttpHeaders(), HttpStatus.BAD_REQUEST);
     }
 
     @ExceptionHandler(NotFoundException.class)
